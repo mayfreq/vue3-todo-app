@@ -10,26 +10,7 @@
       </div>
       <div class="todo-list">
         <ul>
-          <li>
-            <input type="checkbox" />
-            <label>Vanilla JavaScript</label>
-            <input type="button" value="X" />
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label>Vanilla JavaScript</label>
-            <input type="button" value="X" />
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label>Vanilla JavaScript</label>
-            <input type="button" value="X" />
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label>Vanilla JavaScript</label>
-            <input type="button" value="X" />
-          </li>
+          <TodoItem text="Hell yeah brother" @checkedChange="den"/>
         </ul>
       </div>
       <div class="option">
@@ -43,6 +24,22 @@
 </template>
 
 <script>
+import TodoItem from "./components/TodoItem";
+
+export default {
+  components: {
+    TodoItem,
+  },
+  setup(){
+    const den = (checked) => {
+      console.log(checked.value);
+    };
+
+    return {
+      den,
+    };
+  },
+};
 </script>
 
 <style>
@@ -55,7 +52,7 @@
 body {
   font-size: 16px;
   height: 100vh;
-  background-color: #36ADF7;
+  background-color: #36adf7;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -94,7 +91,7 @@ body {
 .todo-add > input[type="text"] {
   width: 300px;
   height: 30px;
-  border:0;
+  border: 0;
 }
 
 ul {
@@ -142,7 +139,7 @@ li:last-child {
   flex-direction: row;
   align-items: flex-start;
   font-size: 0.9em;
-  color:White;
+  color: White;
 }
 
 .option > span {
@@ -151,7 +148,6 @@ li:last-child {
 
 .option > span:nth-child(1) {
   flex: 5;
-
 }
 
 .option > span:nth-child(2) {
